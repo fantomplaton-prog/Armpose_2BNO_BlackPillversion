@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: configure Debug",
+            "type": "process",
+            "command": "cube-cmake",
+            "args": ["--preset", "Debug"],
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "CMake: build Debug",
+            "type": "process",
+            "command": "cube-cmake",
+            "args": ["--build", "--preset", "Debug"],
+            "dependsOn": "CMake: configure Debug",
+            "problemMatcher": "$gcc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "CMake: clean Debug",
+            "type": "process",
+            "command": "cube-cmake",
+            "args": ["--build", "--preset", "Debug", "--target", "clean"],
+            "problemMatcher": []
+        },
+        {
+            "label": "CMake: clean rebuild Debug",
+            "dependsOn": [
+                "CMake: clean Debug",
+                "CMake: build Debug"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "ST-LINK: flash Debug",
+            "type": "process",
+            "command": "${config:stlink.programmerPath}",
+            "args": [
+                "--connect",
+                "port=SWD",
+                "--download",
+                "${workspaceFolder}/build/Debug/Arm_v4.elf",
+                "-hardRst",
+                "-rst"
+            ],
+            "dependsOn": "CMake: build Debug",
+            "problemMatcher": []
+        },
+        {
+            "label": "ST-LINK: build + flash Debug",
+            "dependsOn": [
+                "CMake: build Debug",
+                "ST-LINK: flash Debug"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
