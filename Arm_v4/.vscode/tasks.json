@@ -15,7 +15,7 @@
             "command": "cube-cmake",
             "args": ["--build", "--preset", "Debug"],
             "dependsOn": "CMake: configure Debug",
-            "problemMatcher": "$gcc",
+            "problemMatcher": [],
             "group": {
                 "kind": "build",
                 "isDefault": true

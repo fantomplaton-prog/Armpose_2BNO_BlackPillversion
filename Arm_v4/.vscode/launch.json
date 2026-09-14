@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch STM32F411CEU6 - build + flash + debug",
+            "name": "Launch STM32F401CCU6 - build + flash + debug",
             "type": "cortex-debug",
             "request": "launch",
             "cwd": "${workspaceFolder}",
@@ -11,7 +11,7 @@
             "serverpath": "${config:stlink.gdbServerPath}",
             "serverArgs": ["-p", "${config:stlink.gdbServerPort}"],
             "interface": "swd",
-            "device": "STM32F411CEU6",
+            "device": "STM32F401CCU6",
             "runToEntryPoint": "main",
             "showDevDebugOutput": "raw",
             "preLaunchTask": "ST-LINK: build + flash Debug",
@@ -19,7 +19,7 @@
             "resetAfterDownload": true
         },
         {
-            "name": "Attach STM32F411CEU6 via ST-LINK",
+            "name": "Attach STM32F401CCU6 via ST-LINK",
             "type": "cortex-debug",
             "request": "attach",
             "cwd": "${workspaceFolder}",
@@ -28,7 +28,7 @@
             "serverpath": "${config:stlink.gdbServerPath}",
             "serverArgs": ["-p", "${config:stlink.gdbServerPort}"],
             "interface": "swd",
-            "device": "STM32F411CEU6",
+            "device": "STM32F401CCU6",
             "runToEntryPoint": "main",
             "showDevDebugOutput": "raw"
         }
