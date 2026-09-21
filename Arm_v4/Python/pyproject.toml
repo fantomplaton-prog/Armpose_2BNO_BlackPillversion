@@ -1,4 +1,7 @@
-# pyproject.toml - манифест пакета posetracker.
+# pyproject.toml - манифест пакетов posetracker и pronation_supination
+# (оба лежат в этой же папке Python/, ставятся ОДНОЙ командой ниже - второй
+# и так зависит от первого через `from posetracker.quat import ...`/
+# `from posetracker.ble_link import ...`, отдельный манифест ему не нужен).
 #
 # ЗАЧЕМ ЭТОТ ФАЙЛ:
 # Без него `import posetracker` работает ТОЛЬКО если скрипт-потребитель
@@ -39,4 +42,4 @@ dependencies = [
 ]
 
 [tool.setuptools]
-packages = ["posetracker"]
+packages = ["posetracker", "pronation_supination"]
